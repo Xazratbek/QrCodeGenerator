@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>QR code generator</title>
+</head>
+<body>
+	<form method="post">{% csrf_token %}
+		<input type="text" name="name" placeholder="Input something"> 
+		<button>Generate QR code</button>
+	</form><br>
+	{% for qr in qr_codes %}
+		<img src="{{ qr.qr_code.url }}" alt="Qr code rasmi"><br>
+	{% endfor %}
+</body>
+</html>
